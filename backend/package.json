@@ -4,8 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "build": "prisma generate",
-    "start": "prisma db push && node src/index.js",
+    "build": "npx prisma generate",
+    "start": "npx prisma db push && node src/index.js",
     "seed": "node prisma/seed.js"
   },
   "dependencies": {
