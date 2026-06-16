@@ -12,6 +12,7 @@ import statsRoutes from './routes/stats.js';
 import uploadRoutes from './routes/upload.js';
 import publicRoutes from './routes/public.js';
 import { setIo } from './socket.js';
+import { seedAdminIfEmpty } from './seed.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -47,6 +48,8 @@ app.use('/api/public', publicRoutes);
 
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 
+await seedAdminIfEmpty();
+
 httpServer.listen(PORT, () => {
-  console.log(`RentEase backend running on http://localhost:${PORT}`);
+  console.log(`GesLoc backend running on http://localhost:${PORT}`);
 });
