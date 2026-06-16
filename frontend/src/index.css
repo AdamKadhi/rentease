@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Tokens ── */
+:root {
+  --obsidian:   #0D1117;
+  --charcoal:   #1C2333;
+  --gold:       #C9933A;
+  --gold-light: #E8B96A;
+  --parchment:  #FAFAFA;
+  --cream:      #FFFFFF;
+  --ink:        #111111;
+  --muted:      #888888;
+  --border:     #E0E0E0;
+}
+
+/* ── Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #FAFAFA;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+}
+
+html[lang="ar"] body { font-family: 'Cairo', sans-serif; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #C9933A44; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+.scrollbar-none { scrollbar-width: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+
+/* ── Premium card ── */
+@layer components {
+  .card {
+    @apply bg-cream rounded-2xl shadow-card;
+  }
+  .card-hover {
+    @apply transition-shadow duration-200 hover:shadow-card-hover;
+  }
+  .btn-primary {
+    @apply px-5 py-2.5 rounded-xl text-sm font-semibold text-white
+           bg-gold-grad shadow-sm
+           hover:opacity-90 active:scale-[0.97]
+           transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply px-5 py-2.5 rounded-xl text-sm font-medium text-muted
+           bg-parchment hover:bg-border
+           active:scale-[0.97] transition-all duration-150;
+  }
+  .input {
+    @apply w-full px-3.5 py-2.5 rounded-xl border border-border
+           bg-cream text-sm text-ink placeholder-muted/60
+           focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold
+           transition duration-150;
+  }
+  .label {
+    @apply block text-xs font-semibold text-muted/80 mb-1.5 uppercase tracking-wide;
+  }
+}
+
+/* ── Sidebar active glow ── */
+.nav-active-glow {
+  box-shadow: 0 4px 14px rgba(201,147,58,0.35);
+}
+
+/* ── Remove number input spinners ── */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] { -moz-appearance: textfield; }
+
