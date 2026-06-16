@@ -62,7 +62,10 @@ export default function ClientHomePage() {
     </div>
   );
 
-  const { owner, houses } = data;
+  if (!data) return null;
+
+  const owner = data.owner ?? { name: 'GesLoc', phone: '' };
+  const houses = data.houses ?? [];
 
   return (
     <div>

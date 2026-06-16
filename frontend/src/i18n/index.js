@@ -10,6 +10,8 @@ i18n.use(initReactI18next).init({
   lng: savedLang,
   fallbackLng: 'fr',
   interpolation: { escapeValue: false },
+  initImmediate: false,
+  react: { useSuspense: false },
 });
 
 export default i18n;
